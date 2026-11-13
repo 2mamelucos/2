@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8eee9">
+  <meta name="description" content="Una pequeña sorpresa para Natalia: dos meses juntos, y qué bonito se siente." />
+  <title>Dos meses contigo, Natalia ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#492c35; --muted:#896d72; --rose:#bd6474; --pink:#f1d6d2; --paper:#fffaf5; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100svh; color:var(--ink); font-family:'DM Sans',sans-serif; background:radial-gradient(ellipse at 15% 12%,#fffaf4 0,transparent 38%),radial-gradient(ellipse at 88% 84%,#efd4d7 0,transparent 34%),#f6e9e4; display:grid; place-items:center; overflow-x:hidden; }
+    body::before, body::after { content:'✳'; position:fixed; color:#d5a2a0; opacity:.32; font-size:140px; z-index:-1; }
+    body::before { left:-34px; top:7%; transform:rotate(-18deg); } body::after { right:-30px; bottom:4%; font-size:190px; transform:rotate(22deg); }
+    .sparkles { position:fixed; inset:0; pointer-events:none; overflow:hidden; }
+    .sparkles i { position:absolute; color:#c57983; opacity:0; animation:float 8s infinite ease-in-out; font-style:normal; }
+    .sparkles i:nth-child(1){left:10%;top:30%;animation-delay:0s}.sparkles i:nth-child(2){left:84%;top:22%;animation-delay:2s}.sparkles i:nth-child(3){left:75%;top:78%;animation-delay:4s}.sparkles i:nth-child(4){left:20%;top:82%;animation-delay:1s}.sparkles i:nth-child(5){left:92%;top:55%;animation-delay:3s}
+    @keyframes float { 0%,100%{opacity:0;transform:translateY(12px) scale(.7)} 40%,65%{opacity:.55;transform:translateY(-10px) scale(1)} }
+    main { width:min(100% - 32px,680px); padding:38px 0; }
+    .card { position:relative; overflow:hidden; background:rgba(255,250,245,.9); border:1px solid rgba(255,255,255,.85); border-radius:8px; padding:clamp(32px,7vw,66px) clamp(22px,8vw,76px) 34px; text-align:center; box-shadow:0 24px 80px rgba(104,63,71,.12),0 3px 12px rgba(104,63,71,.05); animation:arrive .9s both cubic-bezier(.2,.8,.2,1); }
+    @keyframes arrive { from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none} }
+    .card::before,.card::after { content:''; position:absolute; width:90px;height:90px;border:1px solid #e8c9c4;opacity:.7; }
+    .card::before {top:13px;left:13px;border-right:0;border-bottom:0}.card::after {bottom:13px;right:13px;border-left:0;border-top:0}
+    .eyebrow { display:flex;justify-content:center;align-items:center;gap:11px; color:var(--rose); text-transform:uppercase;letter-spacing:.22em;font-size:10px;font-weight:700; }
+    .eyebrow::before,.eyebrow::after {content:'';width:24px;height:1px;background:#d9a9a7}
+    h1 { font:500 clamp(42px,9vw,68px)/1.03 'Playfair Display',Georgia,serif; margin:25px 0 14px; letter-spacing:-.04em; }
+    h1 em { color:var(--rose);font-weight:500; }
+    .subtitle { color:var(--muted);font-size:15px;line-height:1.75;margin:0 auto;max-width:390px; }
+    .flower { width:116px;height:116px;margin:28px auto 23px;position:relative;display:grid;place-items:center; }
+    .flower .ring {position:absolute;inset:8px;border:1px solid #ebd0ca;border-radius:50%;}
+    .flower .ring::before,.flower .ring::after {content:'✧';position:absolute;color:#c77d84;font-size:18px;background:var(--paper);padding:0 4px}
+    .flower .ring::before{top:-10px;left:47px}.flower .ring::after{bottom:-10px;right:20px}
+    .flower span {font-size:50px;filter:drop-shadow(0 5px 6px #d8a6a455);animation:sway 4s ease-in-out infinite;}
+    @keyframes sway {50%{transform:rotate(7deg) scale(1.05)}}
+    .rule {height:1px;width:54px;background:#dfb8b2;margin:0 auto 23px;}
+    .message {font:500 18px/1.85 'Playfair Display',Georgia,serif;max-width:440px;margin:0 auto;color:#67434b;}
+    .message p {margin:0 0 14px;}
+    .signature {font:italic 19px 'Playfair Display',Georgia,serif;color:var(--rose);margin-top:20px;}
+    .button { border:0; margin-top:26px; padding:13px 20px; border-radius:99px; background:#f3e3df; color:#87505b; font:600 12px 'DM Sans',sans-serif; letter-spacing:.04em; cursor:pointer; transition:transform .2s,background .2s; }
+    .button:hover {transform:translateY(-2px);background:#eed5d2}.button:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+    .secret {max-height:0;opacity:0;overflow:hidden;transition:max-height .7s ease,opacity .5s ease,margin .5s ease;font:italic 17px/1.7 'Playfair Display',Georgia,serif;color:#98636c}
+    .secret.open {max-height:100px;opacity:1;margin-top:18px}
+    .letter {max-height:0;opacity:0;overflow:hidden;text-align:left;transition:max-height .8s ease,opacity .5s ease,margin .5s ease;font:16px/1.9 'Playfair Display',Georgia,serif;color:#67434b;}
+    .letter.open {max-height:1100px;opacity:1;margin-top:24px;padding:22px 20px 8px;border-top:1px solid #ead2cd;}
+    .letter p {margin:0 0 15px;}
+    .letter .letter-sign {text-align:right;color:var(--rose);font-style:italic;font-size:19px;margin-top:22px;}
+    footer {margin-top:25px;color:#a58a8b;font-size:10px;letter-spacing:.13em;text-transform:uppercase}
+    .heart {position:fixed;pointer-events:none;z-index:4;animation:pop 1.5s ease-out forwards;font-size:22px}
+    @keyframes pop {0%{opacity:0;transform:translateY(0) scale(.5)}20%{opacity:1}100%{opacity:0;transform:translateY(-115px) rotate(18deg) scale(1.2)}}
+    @media(max-width:420px){main{width:calc(100% - 22px)}.card{padding-left:24px;padding-right:24px}.message{font-size:17px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <div class="sparkles" aria-hidden="true"><i>✦</i><i>✧</i><i>✦</i><i>✧</i><i>✦</i></div>
+  <main>
+    <article class="card">
+      <div class="eyebrow">Una pequeña celebración</div>
+      <h1>Dos meses<br><em>contigo, Natalia</em></h1>
+      <p class="subtitle">Y todavía me hace ilusión pensar en todos los momentos bonitos que nos quedan por vivir.</p>
+      <div class="flower" aria-hidden="true"><div class="ring"></div><span>🌷</span></div>
+      <div class="rule"></div>
+      <div class="message">
+        <p>Feliz segundo mes, mi amor.</p>
+        <p>Gracias por hacer que lo cotidiano tenga algo especial. Me encanta compartir este pedacito de vida contigo, y me hace feliz que nuestra historia siga creciendo, poquito a poquito.</p>
+        <p>Por estos dos meses y por todos los que vienen. ♡</p>
+      </div>
+      <div class="signature">Con todo mi cariño</div>
+      <button class="button" id="open-letter" type="button" aria-expanded="false" aria-controls="letter">Leer mi carta <span aria-hidden="true">✉</span></button>
+      <section class="letter" id="letter" aria-hidden="true">
+        <p>Mi Natalia, mi mameluca:</p>
+        <p>Estos dos meses han sido un poquito raros. En este último mes me he puesto enfermo dos veces, y en las dos has estado ahí, cuidándome, ayudándome y pendiente de mí. No sé si te lo digo lo suficiente, pero tenerte conmigo ha hecho que todo sea mucho más fácil. Sin ti, me habría costado muchísimo más.</p>
+        <p>Y además, nos hemos ido a vivir juntos. Es un paso enorme y muy bonito, y me hace mucha ilusión que estemos construyendo un hogar y una vida compartida. Siento que es un paso importante para nuestro bienestar y para que podamos vivir con más tranquilidad, cuidándonos y acompañándonos cada día.</p>
+        <p>Y hay algo que quiero que aprendas a ver como yo lo veo: todo lo que das no es «lo mínimo». No es poco ni algo que se pueda dar por hecho. Es un montón. Tu cariño, tu paciencia, cómo te preocupas por mí y cómo apareces cuando te necesito… todo eso significa muchísimo para mí. Ojalá pudieras mirarte un momento con mis ojos y darte cuenta de lo increíble que eres.</p>
+        <p>Gracias por cuidarme tanto y por ser tú. Te amo, mi mameluca, y me hace muy feliz compartir estos dos meses contigo. Tengo muchas ganas de seguir sumando momentos, aventuras y aniversarios a tu lado.</p>
+        <p class="letter-sign">Feliz segundo mes, mi amor. ♡</p>
+      </section>
+      <button class="button" id="surprise" type="button" aria-expanded="false">Un detallito más <span aria-hidden="true">♡</span></button>
+      <div class="secret" id="secret" aria-live="polite">Si pudiera elegir otra vez, volvería a elegirte a ti. ♡</div>
+      <footer>dos meses de nosotros · y contando</footer>
+    </article>
+  </main>
+  <script>
+    const letterButton = document.querySelector('#open-letter');
+    const letter = document.querySelector('#letter');
+    letterButton.addEventListener('click', () => {
+      const open = letter.classList.toggle('open');
+      letterButton.setAttribute('aria-expanded', String(open));
+      letter.setAttribute('aria-hidden', String(!open));
+      letterButton.innerHTML = open ? 'Cerrar la carta <span aria-hidden="true">♡</span>' : 'Leer mi carta <span aria-hidden="true">✉</span>';
+    });
+    const button = document.querySelector('#surprise');
+    const secret = document.querySelector('#secret');
+    button.addEventListener('click', () => {
+      const open = secret.classList.toggle('open');
+      button.setAttribute('aria-expanded', String(open));
+      button.innerHTML = open ? 'Ya sabes mi secreto <span aria-hidden="true">♡</span>' : 'Un detallito más <span aria-hidden="true">♡</span>';
+      if (open) {
+        for (let i = 0; i < 9; i++) {
+          const heart = document.createElement('span');
+          heart.className = 'heart'; heart.textContent = ['♡','♥','✦'][i % 3];
+          heart.style.left = `${20 + Math.random() * 60}vw`;
+          heart.style.top = `${55 + Math.random() * 25}vh`;
+          heart.style.animationDelay = `${Math.random() * .35}s`;
+          document.body.append(heart);
+          setTimeout(() => heart.remove(), 1800);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
